@@ -28,9 +28,23 @@ const WhatWeDo = () => {
         "Graphic design is the work involved in developing a digital marketing strategy and developing a digital marketing plan.",
     },
   ];
-  return <div className="mt-20">
-    <h1 className="text-secondary text-8xl text-center">What We Do</h1>
-  </div>;
+  return <div className="z-20">
+    <h1 className="text-secondary text-8xl text-center z-20 font-semibold">What We Do ?</h1>
+    <div className="h-96 w-full bg-primary mt-12">
+
+    </div>
+   <div className="grid grid-cols-4 gap-10 mx-32 -mt-48">
+    {items.map((item)=>(
+        <div className="p-5 bg-white border shadow flex flex-col space-y-5 items-center transform hover:scale-105 duration-300">
+        
+        <img src={item.icon} alt={`Icon for ${item.title}`} className="h-20 w-20" />
+
+            <h1 className="text-3xl">{item.title}</h1>
+            <p className="text-gray-600 text-md">{item.description}</p>
+        </div>
+    ))}
+   </div>
+  </div>
 };
 
 export default WhatWeDo;
