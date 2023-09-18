@@ -6,7 +6,7 @@ const Intro = () => {
       <div className="flex flex-col space-y-10">
         <h1 className="text-6xl font-semibond text-primary">The Best <br /> <b className="text-secondary">Marketing</b></h1>
         <h1 className="text-4xl font-semibold">Doesn't feel like Marketing</h1>
-        <button className=" px-14 py-4 bg-secondary text-xl text-white max-w-max">Get Started</button>
+        <button className=" px-14 py-4 bg-secondary text-xl text-white max-w-max hover:bg-primary">Get Started</button>
       </div>
       <div className="p-10">
         <lottie-player

@@ -1,6 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500&display=swap');
-*{
-    font-family: 'Montserrat', sans-serif !important;
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500&display=swap");
+* {
+  font-family: "Montserrat", sans-serif !important;
+}
+html , body{
+    overflow: hidden;
+}
+.about-intro {
+  background-color: #ff4e00;
+  background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
+  overflow-x: hidden !important;
+  transform: rotate(12deg);
+  position: absolute;
+  top: -30%;
+  left: -100px;
+  right: 0;
+  border-radius: 50px;
 }
 
 @tailwind base;
