@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ClientsList = () => {
- 
+  const [selectedClientIndex, setSelectedClientIndex] = useState(0);
+
   const clients = [
     {
       name: "Slack",
@@ -53,18 +54,51 @@ const ClientsList = () => {
         "GitHub is a web-based hosting service for version control of code using the distributed version control (DVCS) model. It was created by Linus Torvalds in 2005.",
     },
   ];
+  const next = () => {
+   
+    setSelectedClientIndex(selectedClientIndex + 1);
+  };
+
+  const previous = () => {
+    setSelectedClientIndex(selectedClientIndex - 1);
+  };
   return (
     <div>
       <div className="bg-primary h-44 rounded-b-full"></div>
-      <div className="flex justify-center">
-        <div className="bg-white p-5 shadow w-{500} border">
-            <div className="flex space-x-10 items-center justify-between">
-                <h1 className="text-primary font-semibold text-2xl">{clients[0].name}</h1>
-                <img src={clients[0].logo} alt="" className="h-32 w-32" />
-            </div>
-            <p className="text-gray-600 text-md mt-10">{clients[0].description}</p>
-        </div>
+      <div className="flex justify-center -mt-44 items-end space-x-10">
+        {selectedClientIndex !== 0 && (
+          <i
+            className="ri-arrow-left-line text-4xl text-gray-600 cursor-pointer "
+            onClick={previous}
+          ></i>
+        )}
 
+        <div className="grid grid-cols-3 gap-10">
+          {[
+            clients[selectedClientIndex],
+            clients[selectedClientIndex + 1],
+            clients[selectedClientIndex + 2],
+          ].map((item) => (
+            <div className={" bg-white p-5 shadow w-[400px] border h-[350px]" }>
+              <div className="flex space-x-10 items-center justify-between">
+                <img src={item.logo} alt="" className="h-32 w-32 z-20" />
+                <h1 className="text-primary font-semibold text-2xl">
+                  {item.name}
+                </h1>
+                
+              </div>
+              <p className="text-gray-600 text-md mt-10">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+        {selectedClientIndex < 4 && (
+          <i
+            className="ri-arrow-right-line text-4xl text-gray-600 cursor-pointer "
+            onClick={next}
+          ></i>
+        )}
       </div>
     </div>
   );
