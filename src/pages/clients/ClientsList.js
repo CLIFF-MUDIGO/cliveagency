@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Numbers from "./Numbers";
 
 const ClientsList = () => {
   const [selectedClientIndex, setSelectedClientIndex] = useState(0);
@@ -108,6 +109,7 @@ const ClientsList = () => {
           ))}
         </div>
       </div>
+      <Numbers />
     </div>
   );
 };
