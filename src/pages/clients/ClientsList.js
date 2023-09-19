@@ -55,7 +55,6 @@ const ClientsList = () => {
     },
   ];
   const next = () => {
-   
     setSelectedClientIndex(selectedClientIndex + 1);
   };
 
@@ -65,7 +64,7 @@ const ClientsList = () => {
   return (
     <div>
       <div className="bg-primary h-44 rounded-b-full"></div>
-      <div className="flex justify-center -mt-44 items-end space-x-10">
+      <div className="flex justify-center -mt-44 items-end space-x-10 overflow-x-hidden">
         {selectedClientIndex !== 0 && (
           <i
             className="ri-arrow-left-line text-4xl text-gray-600 cursor-pointer "
@@ -79,17 +78,14 @@ const ClientsList = () => {
             clients[selectedClientIndex + 1],
             clients[selectedClientIndex + 2],
           ].map((item) => (
-            <div className={" bg-white p-5 shadow w-[400px] border h-[350px]" }>
+            <div className={" bg-white p-5 shadow w-[400px] border h-[350px]"}>
               <div className="flex space-x-10 items-center justify-between">
                 <img src={item.logo} alt="" className="h-32 w-32 z-20" />
                 <h1 className="text-primary font-semibold text-2xl">
                   {item.name}
                 </h1>
-                
               </div>
-              <p className="text-gray-600 text-md mt-10">
-                {item.description}
-              </p>
+              <p className="text-gray-600 text-md mt-10">{item.description}</p>
             </div>
           ))}
         </div>
@@ -99,6 +95,18 @@ const ClientsList = () => {
             onClick={next}
           ></i>
         )}
+      </div>
+      <div className="flex justify-center mt-10 ">
+        <div className="flex space-x-2">
+          {[1, 2, 3, 4, 5].map((item, index) => (
+            <div
+            onClick={() => setSelectedClientIndex(index)}
+              className={`bg-gray-200 h-4 w-4 rounded-full cursor-pointer hover:scale-105 transition-all transform duration-300 ${
+                selectedClientIndex === index && "border-2 border-secondary h-5 w-5"
+              }`}
+            ></div>
+          ))}
+        </div>
       </div>
     </div>
   );
