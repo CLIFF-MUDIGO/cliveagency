@@ -1,10 +1,16 @@
 import React from 'react'
 import Layout from '../../components/Layout'
+import Address from './Address'
+import ContactForm from './ContactForm'
 
 const Contact = () => {
   return (
     <Layout>
-    <div>contact</div>
+    <div className='grid grid-cols-2 px-32 gap-20 mt-20'>
+           <Address />
+           <ContactForm />
+
+    </div>
    </Layout>
   )
 }
