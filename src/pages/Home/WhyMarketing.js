@@ -3,7 +3,7 @@ import React from "react";
 const WhyMarketing = () => {
   return (
     <div className="mt-20">
-      <h1 className="text-center text-8xl font-semibold text-primary">
+      <h1 className="text-center text-8xl font-semibold text-primary sm:text-6xl">
         Why <b className="text-secondary">Marketing</b> ?
       </h1>
       <div className="h-[500px]">

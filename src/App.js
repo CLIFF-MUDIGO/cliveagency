@@ -5,6 +5,7 @@ import Client from "./pages/clients";
 import Contact from "./pages/contact";
 
 
+
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/client" element={<Client />} />
         <Route path="/contact" element={<Contact />} />
+        
       </Routes>
       </BrowserRouter>
     </div>

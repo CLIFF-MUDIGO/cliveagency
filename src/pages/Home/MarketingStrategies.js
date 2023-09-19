@@ -30,10 +30,10 @@ const MarketingStrategies = () => {
 
   return (
     <div>
-      <h1 className="text-5xl font-semibold text-primary">
+      <h1 className="text-5xl font-semibold text-primary sm:mt-10">
         want to boost your business growth ?
       </h1>
-      <h1 className="text-4xl font-semibold text-primary mt-10">
+      <h1 className="text-6xl font-semibold text-primary mt-10">
         The <b className="text-secondary">SOLUTION</b> is here...
       </h1>
       <p className="text-gray-600 text-xl mt-10">
@@ -43,7 +43,7 @@ const MarketingStrategies = () => {
         strategies commonly recognized as successful regardness of industry.
         Here's what we found, in particular order:
       </p>
-      <div className="grid grid-cols-2 gap-20 mt-10">
+      <div className="grid grid-cols-2 gap-20 mt-10 sm:grid-cols-1">
         {strategies.map((item) => {
           return (
             <div className="border border-primary p-5 flex flex-col space-y-5 rounded transform hover:scale-x-105 duration-300">
