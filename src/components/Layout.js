@@ -1,8 +1,10 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const Layout = ({ children }) => {
   const location = useLocation();
+  const Navigate = useNavigate();
+
   const MenuItems = [
     {
       Title: "Home",
@@ -34,24 +36,35 @@ const Layout = ({ children }) => {
         <div className="flex justify-center w-full ">
           {MenuItems.map((item, index) => (
             <div className="flex flex-col justify-end items-center">
-
-              {location.pathname === item.Path && (<div className="flex flex-col items-center">
-                <div className="h-5 w-10 bg-primary rounded-t-full">
-
+              {location.pathname === item.Path && (
+                <div className="flex flex-col items-center">
+                  <div className="h-5  w-10 bg-primary rounded-t-full"></div>
+                  <div className="h-5 w-20  bg-primary rounded-t-full text-center">
+                    <i className={`${item.Icon} text-white text-xl`}></i>
+                  </div>
                 </div>
-                <div className="h-5 w-20 bg-primary rounded-t-full text-center">
-                  <i className={`${item.Icon} text-white text-xl`}></i>
-
-                </div>
-              </div>)}
-
+              )}
 
               <div
-                className={`px-20 bg-primary py-5 ${index === 0 ? "rounded-l" : ""}${index === MenuItems.length - 1 ? "rounded-r" : ""} flex items-center justify-center space-x-2 `}
+                className={`px-20 sm:px-8 bg-primary py-5 ${
+                  index === 0 ? "rounded-l" : ""
+                }${
+                  index === MenuItems.length - 1 ? "rounded-r" : ""
+                } flex items-center justify-center space-x-2 `}
               >
-                {location.pathname !== item.Path && <i className={`${item.Icon} text-secondary text-xl`}></i>}
+                {location.pathname !== item.Path && (
+                  <i
+                    onClick={() => Navigate(item.Path)}
+                    className={`${item.Icon} text-secondary text-xl`}
+                  ></i>
+                )}
 
-                <Link to={`${item.Path}`} className="text-secondary text-xl">
+                <Link
+                  to={`${item.Path}`}
+                  className={`text-secondary text-xl ${
+                    item.Path !== location.pathname && "sm:hidden"
+                  } `}
+                >
                   {item.Title}
                 </Link>
               </div>
